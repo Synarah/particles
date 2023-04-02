@@ -16,6 +16,7 @@ struct Particle {
   glm::vec4 color;
   float rot;
   float size;
+  float ls;
 };
 
 class Viewer : public Window {
@@ -25,7 +26,6 @@ public:
 
   void setup() {
     setWindowSize(1000, 1000);
-    createConfetti(500);
     renderer.setDepthTest(false);
     renderer.blendMode(agl::ADD);
   }
@@ -33,20 +33,32 @@ public:
   void createConfetti(int size)
   {
     renderer.loadTexture("particle", "../textures/star4.png", 0);
-    for (int i = 0; i < size; i++)
-    {
+    for (int i = 0; i < size; i++){
       Particle particle;
-      particle.color = vec4(agl::randomUnitCube(), 1);
+      particle.color = vec4(agl::randomUnitCube(), .5);
       particle.size = 0.25;
       particle.rot = 0.0;
-      particle.pos = agl::randomUnitCube();
-      particle.vel = agl::randomUnitCube();
+      particle.pos = position;
+      particle.vel = vec3(position.y, -position.x ,0) + agl::randomUnitCube();
+      particle.ls = glfwGetTime();
       mParticles.push_back(particle);
     }
   }
 
-  void updateConfetti()
-  {
+  void updateConfetti(){
+    for(int i = 0; i < mParticles.size(); i++ ){
+    mParticles[i].color.a -= (0.7)/32;
+    mParticles[i].pos += ((float)(glfwGetTime() - mParticles[i].ls) * mParticles[i].vel);
+      if( glfwGetTime() - mParticles[i].ls > 0.25){
+        mParticles[i].color = vec4(agl::randomUnitCube(), 1);
+        mParticles[i].size = 0.25;
+        mParticles[i].rot = 0.0;
+        mParticles[i].pos = position;
+        mParticles[i].vel = vec3(position.y, -position.x ,0) + agl::randomUnitCube();
+        mParticles[i].ls = glfwGetTime();
+      }
+      
+    }
   }
 
   void drawConfetti()
@@ -77,10 +89,13 @@ public:
 
   void draw() {
     renderer.beginShader("sprite");
-
+    position.x = cos(elapsedTime());
+    position.y = sin(elapsedTime());
     float aspect = ((float)width()) / height();
     renderer.perspective(glm::radians(60.0f), aspect, 0.1f, 50.0f);
-
+    if(mParticles.size() < 90){
+      createConfetti(1);
+    }
     renderer.lookAt(eyePos, lookPos, up);
     renderer.sprite(position, vec4(1.0f), 0.25f);
     updateConfetti();

@@ -11,6 +11,8 @@ uniform mat4 MVP;
 uniform int Frame;
 uniform int Rows;
 uniform int Cols;
+uniform int r;
+uniform int c;
 
 out vec4 color;
 out vec2 uv;
@@ -19,6 +21,8 @@ void main()
 {
   color = Color;
   uv = vPosition.xy; // todo: compute UV coordinates based on Frame
+  uv.x = (uv.x + c) / Cols;
+  uv.y = (uv.y + r) / Rows;
   
   vec3 z = normalize(CameraPos - Offset);
   vec3 x = normalize(cross(vec3(0,1,0), z));
