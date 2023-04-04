@@ -46,7 +46,7 @@ public:
     renderer.texture("image", "explosion");
 
     // 30 fps => each frame 1/30 long, e.g. when time = 1s, we play frame 30
-    frame = (elapsedTime() * 30) / (numRows * numCols);
+    frame = (elapsedTime() * 30);
     int r = numRows - (frame / numCols);
     int c = frame % numCols;
 
