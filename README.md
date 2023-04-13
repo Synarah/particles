@@ -51,12 +51,20 @@ particles/build $ ../bin/explosion
 
 TODO: Document the main demos your viewer (shaders + models)
 
+Sparkle-trail
 
+![7i17a5](https://user-images.githubusercontent.com/112510953/231818398-6a875b72-c37b-475d-adc2-7688973d7a99.gif)
+
+
+Explosion
 
 
 https://user-images.githubusercontent.com/112510953/231797258-951f3ce7-0dd4-4779-9fde-5e3b0ed976ec.mov
 
 
+
+
+Billboard-axis
 
 https://user-images.githubusercontent.com/112510953/231797315-217afe78-506b-485f-b9d0-fa1faaa920de.mov
 
@@ -66,5 +74,16 @@ https://user-images.githubusercontent.com/112510953/231797315-217afe78-506b-485f
 
 TODO: Show the unique features you made
 
-![7i16l2](https://user-images.githubusercontent.com/112510953/231817276-d663d795-13ef-4a90-a59d-4556798cb5bb.gif)
+Firework
+
+
+![7i172c](https://user-images.githubusercontent.com/112510953/231818049-e4ff9c57-1aa4-4d7b-b5ff-d3341fda43fa.gif)
+
+
+Molecular
+
+
+
+![7i17io](https://user-images.githubusercontent.com/112510953/231818631-0d5c1fa2-87f5-4a3b-8eef-aacf79482ec7.gif)
+
 
