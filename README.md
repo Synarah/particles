@@ -51,7 +51,19 @@ particles/build $ ../bin/explosion
 
 TODO: Document the main demos your viewer (shaders + models)
 
+
+
+
+https://user-images.githubusercontent.com/112510953/231797258-951f3ce7-0dd4-4779-9fde-5e3b0ed976ec.mov
+
+
+
+https://user-images.githubusercontent.com/112510953/231797315-217afe78-506b-485f-b9d0-fa1faaa920de.mov
+
+
+
 ## Unique features 
 
 TODO: Show the unique features you made
+
 
